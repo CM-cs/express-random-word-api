@@ -10,13 +10,13 @@ let JSONresponse = { "word" : ["abstraction",   "agile",   "algorithm",   "API",
 // Gives back a random CS related word like:
 // java
 app.get("/RandomWord", function(req, res) {
-    let rando = ~~(Math.random() * HTTPresponse.length);
+    let rando = ~~(Math.random() * HTTPresponse.length-1);
     res.send(HTTPresponse[rando]);
 });
 
 // Functions identically as above
 app.post("/RandomWord", function(req, res) {
-    let rando = ~~(Math.random() * HTTPresponse.length);
+    let rando = ~~(Math.random() * HTTPresponse.length-1);
     res.send(HTTPresponse[rando]);
 });
 
@@ -24,14 +24,14 @@ app.post("/RandomWord", function(req, res) {
 // { 'word': 'java' }
 // with a content type of application/json
 app.get("/RandomWord.json", function(req, res) {
-    let rando = ~~(Math.random() * JSONresponse.word.length);
+    let rando = ~~(Math.random() * JSONresponse.word.length-1);
     let response = JSONresponse.word[rando];
     res.json({"word":response});
 });
 
 // Identical to the above
 app.post("/RandomWord.json", function(req, res) {
-    let rando = ~~(Math.random() * JSONresponse.word.length);
+    let rando = ~~(Math.random() * JSONresponse.word.length-1);
     let response = JSONresponse.word[rando];
     res.json({"word":response});
 });
